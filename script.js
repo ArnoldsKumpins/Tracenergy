@@ -55,8 +55,16 @@ function randomizeFields() {
     const consumptionField = document.getElementById('consumption');
     const priceField = document.getElementById('price');
 
-    // Generate random values
-    const randomAddress = `123 Random St, City ${Math.floor(Math.random() * 1000)}`;
+    // List of addresses (2 from Riga, 2 from Czech Republic)
+    const addresses = [
+        'Jāņa sēta 3, Rīga, Latvia',
+        'Brīvības iela 53, Rīga, Latvia',
+        'Václavské náměstí 42, Prague, Czech Republic',
+        'Karlova 10, Prague, Czech Republic'
+    ];
+
+    // Generate random index to select an address
+    const randomAddress = addresses[Math.floor(Math.random() * addresses.length)];
     const randomConsumption = `${Math.floor(Math.random() * 500) + 100}`;
     const randomPrice = `${(Math.random() * 100).toFixed(2)}`;
 
@@ -64,6 +72,37 @@ function randomizeFields() {
     addressField.value = randomAddress;
     consumptionField.value = randomConsumption;
     priceField.value = randomPrice;
+
+    console.log("randomizing fetching coordinates")
+
+    // Fetch coordinates for the randomized address
+    fetchCoordinates(randomAddress);
+}
+
+async function fetchCoordinates(address) {
+    showLoading(); // Show loading overlay
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/get_coordinates', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ address })
+        });
+
+        if (response.ok) {
+            const data = await response.json(); // Parse JSON data from response
+            console.log(`Latitude: ${data.latitude}, Longitude: ${data.longitude}`); // Log latitude and longitude
+        } else {
+            const errorData = await response.json();
+            console.error(`Error: ${errorData.error}`); // Log error message
+        }
+    } catch (error) {
+        console.error('Error fetching coordinates:', error);
+    } finally {
+        hideLoading(); // Hide loading overlay after fetch
+    }
 }
 
 // Event listener for file input
@@ -73,7 +112,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     event.preventDefault(); // Prevent default form submission behavior
 
     // Generate random values for the results
-    const yearlySavings = Math.floor(Math.random() * 5000) + 500; // Random savings between 500 and 5500
+    const yearlySavings = Math.floor(Math.random() * 1700) + 300; // Random savings between 500 and 5500
     const solarCompanies = ['SolarCo', 'GreenTech', 'SunPower', 'EcoSolar'];
     const recommendedCompany = solarCompanies[Math.floor(Math.random() * solarCompanies.length)];
     const peakPower = (Math.random() * (10 - 2) + 2).toFixed(2); // Random peak power between 2 and 10 kW
@@ -82,4 +121,6 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     // Redirect to the results page with the data passed as URL parameters
     window.location.href = `results.html?yearlySavings=${yearlySavings}&solarCompany=${recommendedCompany}&peakPower=${peakPower}&estimatedPrice=${estimatedPrice}`;
 });
+
+
 

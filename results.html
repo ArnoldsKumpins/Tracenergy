@@ -27,7 +27,7 @@
                 <p id="estimatedPrice"></p>
             </div>
         </div>
-        <button class="go-back-button" onclick="goBack()">Go Back</button>
+        <button class="go-back-button" onclick="viewRecommendedPanels()">View Recommended Panels</button>
     </div>
 
     <script>
@@ -43,14 +43,26 @@
         }
 
         const params = getQueryParams();
-        document.getElementById("yearlySavings").textContent = "$" + params.yearlySavings;
+        document.getElementById("yearlySavings").textContent = "€" + params.yearlySavings;
         document.getElementById("solarCompany").textContent = params.solarCompany;
         document.getElementById("peakPower").textContent = params.peakPower;
-        document.getElementById("estimatedPrice").textContent = params.estimatedPrice;
+        document.getElementById("estimatedPrice").textContent = "€" + params.estimatedPrice;
 
-        function goBack() {
-            window.location.href = "index.html";
+        // Function to redirect to the recommended panels page
+        function viewRecommendedPanels() {
+            // List of random solar panel company URLs
+            const companyUrls = [
+                "https://www.solarshop.lv/sale/",
+                "https://roofit.solar/solar-roof/solar-roof-panels/",
+            ];
+
+            // Randomly select a URL from the array
+            const randomUrl = companyUrls[Math.floor(Math.random() * companyUrls.length)];
+
+            // Redirect to the selected URL
+            window.location.href = randomUrl;
         }
+
     </script>
 </body>
 </html>
