@@ -5,37 +5,42 @@
 }
 
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: #f0f4f8;
-    font-family: 'Arial', sans-serif;
     transition: opacity 0.5s ease;
     overflow-x: hidden; /* Prevents horizontal overflow */
 }
 
 /* Title container */
 .title-container {
-    margin: 20% 0;
-    text-align: center; /* Center the title */
+    margin-top: 10%; /* Adjusted to create space for content */
+    margin-bottom: 5%;
+    text-align: center;
     width: 100%;
 }
 
 h2 {
-    font-size: 60px;
-    color: #333;
-    margin-bottom: 5%; /* Ensure there's space below the title */
+    font-size: 36px;
+    color: #007bff; /* Matching the template styling */
+    margin-bottom: 40px;
 }
 
 /* Form container styling */
 .form-container {
-    width: 100%;
-    max-width: 800px; /* Restrict the maximum width of the form */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 0 5%;
+    max-width: 600px; /* Similar to template */
+    width: 90%;
 }
 
 /* Upload button styling */
@@ -43,11 +48,11 @@ h2 {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 20px 40px;
+    padding: 15px 30px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 18px;
-    margin-bottom: 5%;
+    margin-bottom: 30px; /* Space below the upload button */
     transition: background-color 0.3s ease;
 }
 
@@ -57,9 +62,9 @@ h2 {
 
 /* Image preview container */
 .image-preview-container {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 30px;
     display: none; /* Hidden until the image is loaded */
+    text-align: center; /* Center the image */
 }
 
 .image-preview img {
@@ -75,8 +80,7 @@ h2 {
 label {
     font-size: 16px;
     color: #333;
-    margin-top: 5%;
-    margin-bottom: 1%;
+    margin-bottom: 10px;
     display: block;
     text-align: left;
 }
@@ -86,7 +90,8 @@ input[type="text"] {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    margin-bottom: 5%;
+    margin-bottom: 30px; /* Increased space for cleaner design */
+    font-size: 18px; /* Consistent input font size */
 }
 
 /* Submit button styling */
@@ -94,12 +99,10 @@ input[type="text"] {
     background-color: #28a745;
     color: white;
     border: none;
-    padding: 15px;
+    padding: 15px 30px;
     border-radius: 6px;
     cursor: pointer;
-    width: 100%;
     font-size: 18px;
-    margin-top: 5%;
     transition: background-color 0.3s ease;
 }
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Tracenergy</title>
+    <link rel="stylesheet" href="results.css"> <!-- Linking the specific CSS file for results -->
+</head>
+<body>
+    <div class="results-container">
+        <h2>Your Solar Energy Plan</h2>
+        <div class="result-box">
+            <div class="result-item">
+                <h3>Yearly Savings</h3>
+                <p id="yearlySavings"></p>
+            </div>
+            <div class="result-item">
+                <h3>Recommended Company</h3>
+                <p id="solarCompany"></p>
+            </div>
+            <div class="result-item">
+                <h3>Peak Power Needed</h3>
+                <p id="peakPower"></p>
+            </div>
+            <div class="result-item">
+                <h3>Estimated Price of Powerplant</h3>
+                <p id="estimatedPrice"></p>
+            </div>
+        </div>
+        <button class="go-back-button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const query = window.location.search.substring(1);
+            const vars = query.split("&");
+            const params = {};
+            vars.forEach(v => {
+                const [key, value] = v.split("=");
+                params[decodeURIComponent(key)] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        const params = getQueryParams();
+        document.getElementById("yearlySavings").textContent = "$" + params.yearlySavings;
+        document.getElementById("solarCompany").textContent = params.solarCompany;
+        document.getElementById("peakPower").textContent = params.peakPower;
+        document.getElementById("estimatedPrice").textContent = params.estimatedPrice;
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
