@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracenergy</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="brain-container">
+            <div class="brain-spinner"></div>
+            <p>Retrieving data from image...</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <div class="title-container">
+            <h2>Tracenergy</h2>
+        </div>
+
+        <div class="form-container">
+            <button class="upload-button" onclick="document.getElementById('file-input').click();">Upload Bill</button>
+            <input type="file" id="file-input" accept="image/*" required onchange="previewImage(event)" style="display: none;">
+
+            <div class="image-preview-container">
+                <div class="image-preview" id="image-preview">
+                    <img id="preview-img" alt="Image Preview" style="display: none;"> <!-- Ensure the img is here -->
+                </div>
+            </div>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address">
+
+            <label for="consumption">Total Electricity Consumption (kWh)</label>
+            <input type="text" id="consumption" name="consumption" placeholder="Enter total electricity consumption">
+
+            <label for="price">Total Price Paid (€)</label>
+            <input type="text" id="price" name="price" placeholder="Enter total price paid">
+
+            <button class="submit-button" type="submit">Submit</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script> <!-- Link to your JS file -->
+</body>
+</html>

@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f4f8;
+    font-family: 'Arial', sans-serif;
+    transition: opacity 0.5s ease;
+    overflow-x: hidden; /* Prevents horizontal overflow */
+}
+
+/* Title container */
+.title-container {
+    margin: 20% 0;
+    text-align: center; /* Center the title */
+    width: 100%;
+}
+
+h2 {
+    font-size: 60px;
+    color: #333;
+    margin-bottom: 5%; /* Ensure there's space below the title */
+}
+
+/* Form container styling */
+.form-container {
+    width: 100%;
+    max-width: 800px; /* Restrict the maximum width of the form */
+    text-align: center;
+    padding: 0 5%;
+}
+
+/* Upload button styling */
+.upload-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 5%;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+/* Image preview container */
+.image-preview-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: none; /* Hidden until the image is loaded */
+}
+
+.image-preview img {
+    max-width: 100%;        /* Prevents the image from exceeding the width of its container */
+    max-height: 300px;      /* Sets a maximum height for the image preview */
+    height: auto;           /* Maintains the aspect ratio */
+    width: auto;            /* Maintains the aspect ratio */
+    border-radius: 6px;
+    object-fit: contain;     /* Keeps the aspect ratio and ensures no cropping */
+}
+
+/* Labels and inputs */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    display: block;
+    text-align: left;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 5%;
+}
+
+/* Submit button styling */
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 5%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f4f8; /* Same as main page background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Smooth transition for fading in/out */
+}
+
+.brain-container {
+    text-align: center;
+    color: #333; /* Same color as form text */
+}
+
+/* Smaller brain spinner */
+.brain-spinner {
+    width: 50px; /* Smaller size */
+    height: 50px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+p {
+    font-size: 16px; /* Smaller font size */
+    color: #333;
+    margin-top: 5px;
+}
