@@ -68,3 +68,18 @@ function randomizeFields() {
 
 // Event listener for file input
 document.getElementById('file-input').addEventListener('change', previewImage);
+
+document.getElementById('submit-btn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Generate random values for the results
+    const yearlySavings = Math.floor(Math.random() * 5000) + 500; // Random savings between 500 and 5500
+    const solarCompanies = ['SolarCo', 'GreenTech', 'SunPower', 'EcoSolar'];
+    const recommendedCompany = solarCompanies[Math.floor(Math.random() * solarCompanies.length)];
+    const peakPower = (Math.random() * (10 - 2) + 2).toFixed(2); // Random peak power between 2 and 10 kW
+    const estimatedPrice = Math.floor(Math.random() * 20000) + 5000; // Random price between 5000 and 25000 USD
+
+    // Redirect to the results page with the data passed as URL parameters
+    window.location.href = `results.html?yearlySavings=${yearlySavings}&solarCompany=${recommendedCompany}&peakPower=${peakPower}&estimatedPrice=${estimatedPrice}`;
+});
+
